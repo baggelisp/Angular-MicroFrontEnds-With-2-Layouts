@@ -10,13 +10,29 @@ export class AppComponent implements OnInit {
   title = 'navbar';
   openSidebar: boolean;
 
+  microFrontEndsLayout = [
+    {
+      name: 'app1',
+      route: '/app1',
+      layout: 'sidebar'
+    },
+    {
+      name: 'app2',
+      route: '/app2',
+      layout: 'full'
+    }
+  ]
+
   constructor(private router: Router) { 
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
-        if (event.url == '/app2'){
-          this.openSidebar = false;
-        } else {
-          this.openSidebar = true;
+        const currentMF = this.microFrontEndsLayout.find(microfr => microfr.route === event.url);
+        if (currentMF){
+          if (currentMF.layout === 'sidebar'){
+            this.openSidebar = true;
+          } else {
+            this.openSidebar = false;
+          }
         }
       }
     });
