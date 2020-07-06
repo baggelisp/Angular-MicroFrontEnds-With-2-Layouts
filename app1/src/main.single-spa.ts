@@ -12,6 +12,12 @@ if (environment.production) {
   enableProdMode();
 }
 
+function domElementGetter() {
+  let el;
+  el = document.getElementById('main-section');
+  return el;
+}
+
 const lifecycles = singleSpaAngular({
   bootstrapFunction: singleSpaProps => {
     singleSpaPropsSubject.next(singleSpaProps);
@@ -20,6 +26,7 @@ const lifecycles = singleSpaAngular({
   template: '<app1-root />',
   Router,
   NgZone: NgZone,
+  domElementGetter
 });
 
 export const bootstrap = lifecycles.bootstrap;

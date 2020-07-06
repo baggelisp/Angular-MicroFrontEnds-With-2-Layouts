@@ -12,6 +12,7 @@ if (environment.production) {
   enableProdMode();
 }
 
+
 const lifecycles = singleSpaAngular({
   bootstrapFunction: singleSpaProps => {
     singleSpaPropsSubject.next(singleSpaProps);
@@ -19,7 +20,7 @@ const lifecycles = singleSpaAngular({
   },
   template: '<navbar-root />',
   Router,
-  NgZone: NgZone,
+  NgZone: NgZone
 });
 
 export const bootstrap = lifecycles.bootstrap;

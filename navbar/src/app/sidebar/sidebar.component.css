@@ -1,0 +1,22 @@
+nav{
+    width: 300px;
+    height: calc( 100vh - 270px);
+    position: sticky;
+    top: 70px;
+    background-color: brown;
+    padding: 100px 0;
+}
+
+nav li{
+    padding: 10px 40px;
+    list-style: none;
+    background-color: #960000;
+    border: 1px solid white;
+}
+
+
+nav li a{
+    padding: 5px 20px;
+    text-decoration: none;
+    color: white;
+}
