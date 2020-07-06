@@ -15,15 +15,22 @@ System.import('single-spa').then(function (singleSpa) {
     singleSpa.registerApplication(
       'navbar',
       function () {
-        return System.import('navbar');
+        layout =  System.import('navbar');
+        layout.then(()=> {
+
+          regApplication('app1', '/app1');
+          regApplication('app2', '/app2');
+
+        })
+        return layout
       },
       function (location) {
         return true;
       }
     )
 
-    regApplication('app1', '/app1');
-    regApplication('app2', '/app2');
+
+
 
     singleSpa.start();
   })
