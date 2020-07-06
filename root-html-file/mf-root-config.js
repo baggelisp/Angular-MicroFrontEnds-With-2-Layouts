@@ -1,5 +1,3 @@
-import {microApps} from './micro-apps.js';
-
 System.import('single-spa').then(function (singleSpa) {
 
     function regApplication(appName, appRoute) {
@@ -24,9 +22,8 @@ System.import('single-spa').then(function (singleSpa) {
       }
     )
 
-    for (const microApp in microApps){
-      regApplication(microApp.appName, microApp.appRoute);
-    }
+    regApplication('app1', '/app1');
+    regApplication('app2', '/app2');
 
     singleSpa.start();
   })
